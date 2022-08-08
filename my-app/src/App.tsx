@@ -1,23 +1,27 @@
-import React, {useState} from 'react';
+import React  from 'react';
 import './App.css';
-import {NewComponent} from "./NewComponent";
+import {Button} from "./components/Button";
+
 
 function App() {
-    let [students, setStudents] = useState([
-        {id:1, name:'Anton', age: 121},
-        {id:2, name:'Anton1', age: 122},
-        {id:3, name:'Anton2', age: 123},
-        {id:4, name:'Anton3', age: 124},
-        {id:5, name:'Anton4', age: 125},
-        {id:6, name:'Anton5', age: 126},
-        {id:7, name:'Anton6', age: 127}
-    ])
 
-  return (
-    <div className="App">
-      <NewComponent students={students}/>
-    </div>
-  );
+    const Button1Foo = (subscriber: string, age: number, address: string) => {
+        console.log(subscriber, age, address)
+    }
+    const Button2Foo = (subscriber: string, age: number) => {
+        console.log(subscriber, age)
+    }
+    const Button3Foo = () => {
+        console.log('Im stupid button!')
+    }
+
+    return (
+        <div className="App">
+            <Button name={'MyYouTubeChanel-1'} callBack={()=>Button1Foo('Im Vasya', 21, 'live in Minsk')}/>
+            <Button name={'MyYouTubeChanel-2'} callBack={()=>Button2Foo('Im Ivan', 24)}/>
+            <Button name={'StupidButton'} callBack={Button3Foo}/>
+        </div>
+    );
 }
 
 export default App;
