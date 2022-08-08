@@ -1,28 +1,51 @@
-import React from "react";
+import React from 'react';
+
 
 type NewComponentPropsType = {
-    students: Array<StudentType>
+    students: Array<StudentsPropsType>
 }
 
-type StudentType = {
+
+type StudentsPropsType = {
     id: number
     name: string
     age: number
 }
 
-export const NewComponent: React.FC<NewComponentPropsType>= (props) => {
 
-    return  (
+export const NewComponent: React.FC<NewComponentPropsType> = (props) => {
+    return (
+        <div>
             <ul>
-            {props.students.map((el, index) => {
-            return (
-                <li key={el.id}>
-                    <span>{el.name}</span>
-
-                    <span> age: {el.age}</span>
-                </li>
-            )
-        })}
+                {props.students.map((el) => {
+                    return(
+                         <li>
+                             <span>{el.name}</span>
+                             <span> age: {el.age}</span>
+                             <span> id: {el.id}</span>
+                         </li>
+                    )
+                })}
             </ul>
-    )
-}
+        </div>
+    );
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
