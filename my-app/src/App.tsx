@@ -3,6 +3,8 @@ import './App.css';
 import {Fullinput} from "./components/Fullinput";
 
 
+
+
 function App() {
     let [message, setMessage] = useState([
         {message: 'message1'},
@@ -10,10 +12,16 @@ function App() {
         {message: 'message3'}
     ])
 
+    const addMessage = (title: string) => {
+        console.log(title)
+    };
+
 
     return (
         <div className={'App'}>
-            <Fullinput/>
+            <Fullinput
+                addMessage={addMessage}
+            />
             {
                 message.map((el, index) => {
                     return (
